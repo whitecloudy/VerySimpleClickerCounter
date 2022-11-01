@@ -22,7 +22,7 @@
             android:ems="10"
             android:focusableInTouchMode="false"
             android:longClickable="true"
-            android:text="999"
+            android:text="@string/default_number"
             android:textAlignment="center"
             android:textSize="72sp" />
 

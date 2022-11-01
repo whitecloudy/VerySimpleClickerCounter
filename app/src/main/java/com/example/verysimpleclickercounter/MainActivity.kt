@@ -20,6 +20,7 @@ class MainActivity : Activity() {
 
         binding.numberView.text = counter.toString()
         binding.numberView.setOnLongClickListener{resetCounter()}
+        binding.numberView.setOnClickListener{countOne()}
 
         //setContentView(R.layout.activity_main)
         //textNumber.setText("what?")
@@ -32,20 +33,26 @@ class MainActivity : Activity() {
         return true
     }
 
+    private fun countOne(): Boolean {
+        counter++
+        if (counter >= 1000)
+            resetCounter()
+        binding.numberView.text = counter.toString()
+        return true
+    }
+
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         if (event != null) {
-            return if (event.repeatCount == 0) {
+            if (event.repeatCount == 0) {
                 if (keyCode == KeyEvent.KEYCODE_BACK) {
                     Log.d("button", "$keyCode is pushed")
-                    counter++
-                    if (counter >= 1000)
-                        resetCounter()
-                    binding.numberView.text = counter.toString()
+                    countOne()
                     return true
-                } else super.onKeyDown(keyCode, event)
-            } else super.onKeyDown(keyCode, event)
-        } else {
-            return true
-        }
+                } else
+                    return super.onKeyDown(keyCode, event)
+            } else
+                return super.onKeyDown(keyCode, event)
+        } else
+            return super.onKeyDown(keyCode, event)
     }
 }
