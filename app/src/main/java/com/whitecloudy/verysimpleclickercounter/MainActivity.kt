@@ -8,9 +8,9 @@ import android.view.GestureDetector
 import android.view.KeyEvent
 import com.whitecloudy.verysimpleclickercounter.databinding.ActivityMainBinding
 import android.view.MotionEvent
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import kotlin.math.abs
+import com.whitecloudy.verysimpleclickercounter.configHandler
 
 
 class MainActivity :
@@ -85,7 +85,7 @@ class MainActivity :
                 startActivity(intent)
             }
         } catch (e: Exception) {
-
+            Log.e(DEBUG_TAG, "Error while handling fling $e")
         }
 
         return true
@@ -130,17 +130,17 @@ class MainActivity :
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        if (event != null) {
+        return if (event != null) {
             if (event.repeatCount == 0) {
                 if (keyCode == KeyEvent.KEYCODE_BACK) {
                     Log.d("button", "$keyCode is pushed")
                     countOne()
-                    return true
+                    true
                 } else
-                    return super.onKeyDown(keyCode, event)
+                    super.onKeyDown(keyCode, event)
             } else
-                return super.onKeyDown(keyCode, event)
+                super.onKeyDown(keyCode, event)
         } else
-            return super.onKeyDown(keyCode, event)
+            super.onKeyDown(keyCode, null)
     }
 }
