@@ -1,4 +1,4 @@
-package com.example.verysimpleclickercounter
+package com.whitecloudy.verysimpleclickercounter
 
 import android.app.Activity
 import android.content.Intent
@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.GestureDetector
 import android.view.KeyEvent
-import com.example.verysimpleclickercounter.databinding.ActivityMainBinding
+import com.whitecloudy.verysimpleclickercounter.databinding.ActivityMainBinding
 import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat

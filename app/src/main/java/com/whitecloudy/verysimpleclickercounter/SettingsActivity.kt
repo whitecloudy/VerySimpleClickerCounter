@@ -1,8 +1,10 @@
-package com.example.verysimpleclickercounter
+package com.whitecloudy.verysimpleclickercounter
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceFragmentCompat
+import com.whitecloudy.verysimpleclickercounter.R
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -16,11 +18,14 @@ class SettingsActivity : AppCompatActivity() {
                     .commit()
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
     }
 
     class SettingsFragment : PreferenceFragmentCompat() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey)
+
+            Log.d("Setting", rootKey.toString())
         }
     }
 }
